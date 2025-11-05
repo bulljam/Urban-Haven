@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+:root {
+  --tone-bg: #f6f3ed;
+  --tone-surface: #fffdf9;
+  --tone-card: #fefcf8;
+  --tone-text: #1f1c17;
+  --tone-muted: #6f685f;
+  --tone-accent: #8d6f4e;
+  --tone-accent-2: #6f553a;
+  --tone-border: #e5ddd2;
+}
+
+html,
+body,
+#__nuxt {
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(circle at 20% 0%, #efe8dd 0%, transparent 35%),
+    radial-gradient(circle at 100% 0%, #e8dfd1 0%, transparent 30%),
+    var(--tone-bg);
+  color: var(--tone-text);
+  font-family: Manrope, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.surface {
+  background-color: var(--tone-surface);
+  border: 1px solid var(--tone-border);
+}
+
+.card-surface {
+  background-color: var(--tone-card);
+  border: 1px solid var(--tone-border);
+}
+
+.accent-btn {
+  background-color: var(--tone-accent);
+  border-color: var(--tone-accent);
+  color: #fff;
+}
+
+.accent-btn:hover {
+  background-color: var(--tone-accent-2);
+  border-color: var(--tone-accent-2);
+}
+
+.link-accent {
+  color: var(--tone-accent-2);
+}
+
+.text-muted {
+  color: var(--tone-muted);
+}
+
+.shell {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
