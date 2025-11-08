@@ -5,8 +5,7 @@ const route = useRoute()
 const navLinks = [
   { name: 'Home', to: '/' },
   { name: 'Listings', to: '/listings' },
-  { name: 'About', to: '/about' },
-  { name: 'Contact', to: '/contact' }
+  { name: 'About', to: '/about' }
 ]
 
 watch(
@@ -27,11 +26,11 @@ watch(
             v-for="link in navLinks"
             :key="link.to"
             :to="link.to"
-            class="text-sm font-medium transition-colors hover:link-accent"
+            class="nav-link text-sm font-medium transition-colors hover:link-accent"
           >
             {{ link.name }}
           </NuxtLink>
-          <NuxtLink to="/contact" class="btn btn-sm rounded-xl border-0 accent-btn">Contact Advisor</NuxtLink>
+          <NuxtLink to="/contact" class="btn btn-sm rounded-xl border-0 accent-btn hover-lift">Book a Call</NuxtLink>
         </nav>
         <button
           aria-label="Toggle mobile menu"
@@ -53,7 +52,7 @@ watch(
           >
             {{ link.name }}
           </NuxtLink>
-          <NuxtLink to="/contact" class="btn rounded-xl border-0 accent-btn">Contact Advisor</NuxtLink>
+          <NuxtLink to="/contact" class="btn rounded-xl border-0 accent-btn hover-lift">Book a Call</NuxtLink>
         </div>
       </div>
     </Transition>
