@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <header class="space-y-3">
+  <header class="space-y-3 reveal-up">
     <p v-if="eyebrow" class="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
       {{ eyebrow }}
     </p>
