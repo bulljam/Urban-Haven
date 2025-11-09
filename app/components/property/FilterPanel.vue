@@ -9,6 +9,13 @@ const maxPrice = defineModel<number | null>('maxPrice', { default: null })
 defineProps<{
   allTypes: Array<'All' | PropertyType>
 }>()
+
+const resetFilters = () => {
+  city.value = ''
+  type.value = 'All'
+  minPrice.value = null
+  maxPrice.value = null
+}
 </script>
 
 <template>
@@ -21,14 +28,14 @@ defineProps<{
           v-model="city"
           type="text"
           placeholder="Search city"
-          class="input rounded-xl border-[var(--tone-border)] bg-white/60"
+          class="input field-hover rounded-xl border-[var(--tone-border)] bg-[color:var(--tone-surface)] text-[color:var(--tone-text)] focus:border-[var(--tone-accent)] focus:outline-none focus:ring-2 focus:ring-[color:var(--tone-accent)]/20"
         >
       </label>
       <label class="form-control">
         <span class="mb-1 text-xs uppercase tracking-[0.15em] text-muted">Type</span>
         <select
           v-model="type"
-          class="select rounded-xl border-[var(--tone-border)] bg-white/60"
+          class="select field-hover rounded-xl border-[var(--tone-border)] bg-[color:var(--tone-surface)] text-[color:var(--tone-text)] focus:border-[var(--tone-accent)] focus:outline-none focus:ring-2 focus:ring-[color:var(--tone-accent)]/20"
         >
           <option v-for="item in allTypes" :key="item" :value="item">{{ item }}</option>
         </select>
@@ -40,7 +47,7 @@ defineProps<{
           type="number"
           min="0"
           placeholder="500000"
-          class="input rounded-xl border-[var(--tone-border)] bg-white/60"
+          class="input field-hover rounded-xl border-[var(--tone-border)] bg-[color:var(--tone-surface)] text-[color:var(--tone-text)] focus:border-[var(--tone-accent)] focus:outline-none focus:ring-2 focus:ring-[color:var(--tone-accent)]/20"
           @input="minPrice = ($event.target as HTMLInputElement).value ? Number(($event.target as HTMLInputElement).value) : null"
         >
       </label>
@@ -51,10 +58,17 @@ defineProps<{
           type="number"
           min="0"
           placeholder="8000000"
-          class="input rounded-xl border-[var(--tone-border)] bg-white/60"
+          class="input field-hover rounded-xl border-[var(--tone-border)] bg-[color:var(--tone-surface)] text-[color:var(--tone-text)] focus:border-[var(--tone-accent)] focus:outline-none focus:ring-2 focus:ring-[color:var(--tone-accent)]/20"
           @input="maxPrice = ($event.target as HTMLInputElement).value ? Number(($event.target as HTMLInputElement).value) : null"
         >
       </label>
+      <button
+        type="button"
+        class="btn hover-lift rounded-xl border-[var(--tone-border)] bg-transparent text-[color:var(--tone-text)] hover:bg-[color:var(--tone-card)] sm:col-span-2 lg:col-span-1"
+        @click="resetFilters"
+      >
+        Reset Filters
+      </button>
     </div>
   </aside>
 </template>
