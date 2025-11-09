@@ -19,7 +19,7 @@ defineProps<{
         <span class="mb-1 text-[0.68rem] uppercase tracking-[0.16em] text-muted">Full Name</span>
         <input
           type="text"
-          class="input h-12 rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
+          class="input field-hover h-12 rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
           required
         >
       </label>
@@ -27,7 +27,7 @@ defineProps<{
         <span class="mb-1 text-[0.68rem] uppercase tracking-[0.16em] text-muted">Email</span>
         <input
           type="email"
-          class="input h-12 rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
+          class="input field-hover h-12 rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
           required
         >
       </label>
@@ -35,13 +35,13 @@ defineProps<{
         <span class="mb-1 text-[0.68rem] uppercase tracking-[0.16em] text-muted">Phone</span>
         <input
           type="tel"
-          class="input h-12 rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
+          class="input field-hover h-12 rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
         >
       </label>
       <label v-if="!compact" class="form-control sm:col-span-1">
         <span class="mb-1 text-[0.68rem] uppercase tracking-[0.16em] text-muted">Budget Range</span>
         <select
-          class="select h-12 rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
+          class="select field-hover h-12 rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
         >
           <option>Under $1M</option>
           <option>$1M - $3M</option>
@@ -52,14 +52,14 @@ defineProps<{
       <label class="form-control sm:col-span-2">
         <span class="mb-1 text-[0.68rem] uppercase tracking-[0.16em] text-muted">Message</span>
         <textarea
-          rows="5"
-          class="textarea rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
+          rows="6"
+          class="textarea field-hover min-h-36 w-full rounded-xl border-[var(--tone-border)] bg-white/75 leading-relaxed placeholder:text-[#978f84] focus:border-[var(--tone-accent)] focus:outline-none"
           placeholder="Preferred locations, property type, timeline, and any must-haves."
-        />
+        ></textarea>
       </label>
       <div class="sm:col-span-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p class="text-xs text-muted">By submitting, you agree to be contacted by Urban Haven.</p>
-        <button class="btn rounded-xl border-0 px-6 accent-btn">
+        <button class="btn rounded-xl border-0 px-6 accent-btn hover-lift">
           {{ submitLabel || 'Send Message' }}
         </button>
       </div>
