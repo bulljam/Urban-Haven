@@ -81,7 +81,7 @@ export const properties: Property[] = [
     type: 'Apartment',
     featured: false,
     image:
-      'https://images.unsplash.com/photo-1616594039964-3c8d3be5d5d3?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=1600&q=80',
     gallery: [
       'https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=1600&q=80',
       'https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=1600&q=80',
@@ -153,7 +153,7 @@ export const properties: Property[] = [
     type: 'Penthouse',
     featured: false,
     image:
-      'https://images.unsplash.com/photo-1600607687644-c94bf4f0b70c?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1618221469555-7f3ad97540d6?auto=format&fit=crop&w=1600&q=80',
     gallery: [
       'https://images.unsplash.com/photo-1618221469555-7f3ad97540d6?auto=format&fit=crop&w=1600&q=80',
       'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1600&q=80',
