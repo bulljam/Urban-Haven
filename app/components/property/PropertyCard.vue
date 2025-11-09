@@ -14,12 +14,12 @@ const toPrice = (price: number) =>
 </script>
 
 <template>
-  <article class="card-surface overflow-hidden rounded-2xl shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+  <article class="group card-surface overflow-hidden rounded-2xl shadow-sm hover-lift reveal-up hover:shadow-md">
     <NuxtLink :to="`/listings/${property.slug}`" class="block">
       <img
         :src="property.image"
         :alt="property.title"
-        class="h-56 w-full object-cover"
+        class="h-56 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         loading="lazy"
       >
       <div class="space-y-4 p-5">
