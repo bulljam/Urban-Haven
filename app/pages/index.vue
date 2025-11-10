@@ -26,9 +26,10 @@ useSeoMeta({
       />
       <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         <PropertyCard
-          v-for="property in featuredProperties"
+          v-for="(property, index) in featuredProperties"
           :key="property.id"
           :property="property"
+          :style="{ animationDelay: `${120 + index * 90}ms` }"
         />
       </div>
     </section>
@@ -40,18 +41,19 @@ useSeoMeta({
         title="Trusted by discerning buyers"
       />
       <TestimonialCard
-        v-for="item in testimonials"
+        v-for="(item, index) in testimonials"
         :key="item.id"
         :quote="item.quote"
         :name="item.name"
         :role="item.role"
+        :style="{ animationDelay: `${120 + index * 90}ms` }"
       />
     </section>
 
     <CTASection
       title="Start your property search with a private brief."
       description="Share your goals and timeline. Our advisory team will curate matching properties and guide each next step."
-      button-label="Contact Advisor"
+      button-label="Book a Call"
       button-to="/contact"
     />
   </div>
