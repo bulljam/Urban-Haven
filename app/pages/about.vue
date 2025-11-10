@@ -8,7 +8,7 @@ useSeoMeta({
 <template>
   <div class="space-y-16 py-8 sm:py-10">
     <section class="shell grid gap-8 lg:grid-cols-2 lg:items-center">
-      <div class="space-y-4">
+      <div class="space-y-4 reveal-up">
         <SectionHeading
           eyebrow="About"
           title="A boutique advisory for design-led living."
@@ -22,20 +22,20 @@ useSeoMeta({
       <img
         src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80"
         alt="Urban Haven team"
-        class="h-80 w-full rounded-3xl object-cover shadow-sm sm:h-[28rem]"
+        class="h-80 w-full rounded-3xl object-cover shadow-sm reveal-up delay-1 sm:h-[28rem]"
       >
     </section>
 
     <section class="shell grid gap-4 sm:grid-cols-3">
-      <article class="surface rounded-2xl p-6 shadow-sm">
+      <article class="surface rounded-2xl p-6 shadow-sm hover-lift reveal-up">
         <p class="text-4xl font-semibold">14+</p>
         <p class="mt-2 text-sm text-muted">Years in premium markets</p>
       </article>
-      <article class="surface rounded-2xl p-6 shadow-sm">
+      <article class="surface rounded-2xl p-6 shadow-sm hover-lift reveal-up delay-1">
         <p class="text-4xl font-semibold">$1.8B</p>
         <p class="mt-2 text-sm text-muted">Closed transaction value</p>
       </article>
-      <article class="surface rounded-2xl p-6 shadow-sm">
+      <article class="surface rounded-2xl p-6 shadow-sm hover-lift reveal-up delay-2">
         <p class="text-4xl font-semibold">97%</p>
         <p class="mt-2 text-sm text-muted">Client referral rate</p>
       </article>
