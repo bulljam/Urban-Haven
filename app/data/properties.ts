@@ -79,7 +79,7 @@ export const properties: Property[] = [
     baths: 3,
     areaSqft: 2300,
     type: 'Apartment',
-    featured: false,
+    featured: true,
     image:
       'https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=1600&q=80',
     gallery: [
@@ -103,7 +103,7 @@ export const properties: Property[] = [
     baths: 4,
     areaSqft: 3100,
     type: 'Townhouse',
-    featured: false,
+    featured: true,
     image:
       'https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1600&q=80',
     gallery: [
@@ -111,7 +111,7 @@ export const properties: Property[] = [
       'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1600&q=80',
       'https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?auto=format&fit=crop&w=1600&q=80'
     ],
-    summary: 'Contemporary townhouse centered around an inner garden.',
+    summary: 'Contemporary townhouse centered around a garden.',
     description:
       'An urban retreat with layered natural textures, custom lighting, and a landscaped courtyard connecting every living space.',
     amenities: ['Private garage', 'Rooftop deck', 'Radiant heating', 'EV charger']
@@ -163,6 +163,150 @@ export const properties: Property[] = [
     description:
       'A high-design penthouse balancing soft materials and bold geometry, offering exceptional privacy and sweeping bay views.',
     amenities: ['Private elevator', 'Spa bath', 'Roof plunge pool', '24/7 security']
+  },
+  {
+    id: 'p7',
+    slug: 'riverstone-modern-villa',
+    title: 'Riverstone Modern Villa',
+    city: 'Austin',
+    neighborhood: 'West Lake Hills',
+    price: 3840000,
+    beds: 5,
+    baths: 5,
+    areaSqft: 4200,
+    type: 'Villa',
+    featured: false,
+    image:
+      'https://images.unsplash.com/photo-1600047509782-20d39509f26d?auto=format&fit=crop&w=1600&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1617104551722-3b2d51366485?auto=format&fit=crop&w=1600&q=80'
+    ],
+    summary: 'Hill country architecture with elevated sunset terraces.',
+    description:
+      'A warm contemporary villa with natural limestone textures, integrated smart systems, and a private outdoor lounge sequence.',
+    amenities: ['Resort pool', 'Outdoor kitchen', 'Media lounge', 'Gated entry']
+  },
+  {
+    id: 'p8',
+    slug: 'beacon-heights-apartment',
+    title: 'Beacon Heights Apartment',
+    city: 'Boston',
+    neighborhood: 'Back Bay',
+    price: 1960000,
+    beds: 2,
+    baths: 2,
+    areaSqft: 1750,
+    type: 'Apartment',
+    featured: false,
+    image:
+      'https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=1600&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1616594039964-3c8d3be5d5d3?auto=format&fit=crop&w=1600&q=80'
+    ],
+    summary: 'Elegant city apartment overlooking historic streets.',
+    description:
+      'A refined apartment with crafted finishes, oversized windows, and discreet full-service amenities in a prime address.',
+    amenities: ['Private storage', 'Doorman', 'Fitness studio', 'Pet friendly']
+  },
+  {
+    id: 'p9',
+    slug: 'copperline-townhouse',
+    title: 'Copperline Townhouse',
+    city: 'Denver',
+    neighborhood: 'Cherry Creek',
+    price: 2640000,
+    beds: 4,
+    baths: 4,
+    areaSqft: 2950,
+    type: 'Townhouse',
+    featured: false,
+    image:
+      'https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1600&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1600&q=80'
+    ],
+    summary: 'Design-led townhouse minutes from dining and galleries.',
+    description:
+      'A modern townhouse balancing entertaining spaces and private suites, with rich material palettes and rooftop views.',
+    amenities: ['Rooftop lounge', '2-car garage', 'Mudroom', 'EV ready']
+  },
+  {
+    id: 'p10',
+    slug: 'starlight-bay-penthouse',
+    title: 'Starlight Bay Penthouse',
+    city: 'San Diego',
+    neighborhood: 'La Jolla',
+    price: 4380000,
+    beds: 4,
+    baths: 4,
+    areaSqft: 3320,
+    type: 'Penthouse',
+    featured: false,
+    image:
+      'https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1600&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1618221469555-7f3ad97540d6?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1600&q=80'
+    ],
+    summary: 'Coastal penthouse with uninterrupted ocean horizon.',
+    description:
+      'An expansive penthouse defined by serene interiors, oversized terraces, and custom fixtures selected for long-term timelessness.',
+    amenities: ['Private lobby', 'Wine room', 'Beach club access', '24/7 concierge']
+  },
+  {
+    id: 'p11',
+    slug: 'elmwood-reserve-apartment',
+    title: 'Elmwood Reserve Apartment',
+    city: 'Portland',
+    neighborhood: 'Pearl District',
+    price: 1745000,
+    beds: 2,
+    baths: 2,
+    areaSqft: 1680,
+    type: 'Apartment',
+    featured: false,
+    image:
+      'https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=1600&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1616594039964-3c8d3be5d5d3?auto=format&fit=crop&w=1600&q=80'
+    ],
+    summary: 'Minimalist apartment with expansive skyline glazing.',
+    description:
+      'A calm, efficient home with elevated finishes and panoramic city views, designed for effortless daily living.',
+    amenities: ['Bike valet', 'Cowork lounge', 'Smart access', 'Resident terrace']
+  },
+  {
+    id: 'p12',
+    slug: 'cedar-harbor-villa',
+    title: 'Cedar Harbor Villa',
+    city: 'Santa Barbara',
+    neighborhood: 'Montecito',
+    price: 5920000,
+    beds: 6,
+    baths: 6,
+    areaSqft: 5400,
+    type: 'Villa',
+    featured: true,
+    image:
+      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1600&q=80'
+    ],
+    summary: 'Estate-style villa with mature gardens and sea breeze.',
+    description:
+      'A grand yet understated coastal estate crafted for privacy, seasonal entertaining, and seamless indoor-outdoor transitions.',
+    amenities: ['Guest house', 'Tennis court', 'Wellness suite', 'Security system']
   }
 ]
 
