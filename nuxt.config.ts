@@ -12,7 +12,14 @@ export default defineNuxtConfig({
       pathPrefix: false
     }
   ],
+  sourcemap: {
+    server: false,
+    client: false
+  },
   vite: {
+    build: {
+      sourcemap: false
+    },
     plugins: [tailwindcss()]
   },
   googleFonts: {
