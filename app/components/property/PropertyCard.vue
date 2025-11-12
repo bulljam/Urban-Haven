@@ -11,6 +11,8 @@ const toPrice = (price: number) =>
     currency: 'USD',
     maximumFractionDigits: 0
   }).format(price)
+
+const toCardTitle = (title: string) => title.split(' ').slice(0, 2).join(' ')
 </script>
 
 <template>
@@ -25,7 +27,7 @@ const toPrice = (price: number) =>
       <div class="space-y-4 p-5">
         <div class="flex items-start justify-between gap-3">
           <div>
-            <h3 class="text-2xl">{{ property.title }}</h3>
+            <h3 class="text-2xl">{{ toCardTitle(property.title) }}</h3>
             <p class="text-sm text-muted">{{ property.neighborhood }}, {{ property.city }}</p>
           </div>
           <span class="badge rounded-lg border-[var(--tone-border)] bg-transparent">{{ property.type }}</span>
