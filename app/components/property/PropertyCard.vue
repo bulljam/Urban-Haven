@@ -16,7 +16,14 @@ const toCardTitle = (title: string) => title.split(' ').slice(0, 2).join(' ')
 </script>
 
 <template>
-  <article class="group card-surface overflow-hidden rounded-2xl shadow-sm hover-lift reveal-up hover:shadow-md">
+  <Motion
+    :initial="{ opacity: 0, y: 16 }"
+    :while-in-view="{ opacity: 1, y: 0 }"
+    :while-hover="{ y: -6 }"
+    :transition="{ duration: 0.45 }"
+    :viewport="{ once: true, amount: 0.2 }"
+    class="group card-surface overflow-hidden rounded-2xl shadow-sm hover-lift hover:shadow-md"
+  >
     <NuxtLink :to="`/listings/${property.slug}`" class="block">
       <img
         :src="property.image"
@@ -41,5 +48,5 @@ const toCardTitle = (title: string) => title.split(' ').slice(0, 2).join(' ')
         </div>
       </div>
     </NuxtLink>
-  </article>
+  </Motion>
 </template>
