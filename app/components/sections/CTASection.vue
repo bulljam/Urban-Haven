@@ -9,7 +9,13 @@ defineProps<{
 
 <template>
   <section class="shell">
-    <div class="surface aura-panel rounded-3xl p-8 shadow-sm reveal-up sm:p-12">
+    <Motion
+      :initial="{ opacity: 0, y: 20 }"
+      :while-in-view="{ opacity: 1, y: 0 }"
+      :transition="{ duration: 0.55 }"
+      :viewport="{ once: true, amount: 0.3 }"
+      class="surface aura-panel rounded-3xl p-8 shadow-sm sm:p-12"
+    >
       <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div class="max-w-2xl space-y-3">
           <h3 class="text-3xl sm:text-4xl">{{ title }}</h3>
@@ -19,6 +25,6 @@ defineProps<{
           {{ buttonLabel || 'Book a Call' }}
         </NuxtLink>
       </div>
-    </div>
+    </Motion>
   </section>
 </template>
