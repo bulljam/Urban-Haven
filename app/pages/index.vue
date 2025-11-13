@@ -2,6 +2,40 @@
 import { testimonials } from '~/data/properties'
 
 const { featuredProperties } = useProperties()
+const { gsap } = useGsap()
+
+const featuredSection = ref<HTMLElement | null>(null)
+const testimonialsSection = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+  if (featuredSection.value) {
+    gsap.from(featuredSection.value.querySelectorAll('.js-featured-card'), {
+      y: 28,
+      opacity: 0,
+      duration: 0.85,
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: featuredSection.value,
+        start: 'top 78%',
+        once: true
+      }
+    })
+  }
+
+  if (testimonialsSection.value) {
+    gsap.from(testimonialsSection.value.querySelectorAll('.js-testimonial-card'), {
+      y: 24,
+      opacity: 0,
+      duration: 0.75,
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: testimonialsSection.value,
+        start: 'top 80%',
+        once: true
+      }
+    })
+  }
+})
 
 useSeoMeta({
   title: 'Urban Haven | Premium Real Estate',
@@ -18,7 +52,7 @@ useSeoMeta({
       image="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=80"
     />
 
-    <section class="shell space-y-8">
+    <section ref="featuredSection" class="shell space-y-8">
       <SectionHeading
         eyebrow="Featured"
         title="Signature Properties"
@@ -28,13 +62,14 @@ useSeoMeta({
         <PropertyCard
           v-for="(property, index) in featuredProperties"
           :key="property.id"
+          class="js-featured-card"
           :property="property"
           :style="{ animationDelay: `${120 + index * 90}ms` }"
         />
       </div>
     </section>
 
-    <section class="shell grid gap-8 lg:grid-cols-3">
+    <section ref="testimonialsSection" class="shell grid gap-8 lg:grid-cols-3">
       <SectionHeading
         class="lg:col-span-3"
         eyebrow="Client Stories"
@@ -43,6 +78,7 @@ useSeoMeta({
       <TestimonialCard
         v-for="(item, index) in testimonials"
         :key="item.id"
+        class="js-testimonial-card"
         :quote="item.quote"
         :name="item.name"
         :role="item.role"
