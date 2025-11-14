@@ -19,7 +19,7 @@
       <section class="space-y-3">
         <h3 class="text-lg font-semibold">Contact</h3>
         <p class="text-sm text-muted">+1 (310) 555-0199</p>
-        <p class="text-sm text-muted">concierge@urbanhaven.com</p>
+        <p class="text-sm text-muted">concierge@urbanhaven.test</p>
         <p class="text-sm text-muted">880 Westview Ave, Los Angeles, CA</p>
       </section>
     </div>
