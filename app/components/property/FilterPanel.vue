@@ -19,7 +19,7 @@ const resetFilters = () => {
 </script>
 
 <template>
-  <aside class="surface rounded-2xl p-5 shadow-sm">
+  <aside class="surface h-fit self-start rounded-2xl p-5 shadow-sm">
     <h3 class="text-2xl">Filters</h3>
     <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
       <label class="form-control">
