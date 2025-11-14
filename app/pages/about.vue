@@ -1,4 +1,91 @@
 <script setup lang="ts">
+const statsSection = ref<HTMLElement | null>(null)
+const years = ref(0)
+const volume = ref(0)
+const referral = ref(0)
+
+let statsObserver: IntersectionObserver | null = null
+let hasAnimatedStats = false
+
+const easeOutCubic = (t: number) => 1 - (1 - t) ** 3
+
+const animateValue = (
+  from: number,
+  to: number,
+  durationMs: number,
+  onUpdate: (value: number) => void
+) => {
+  const start = performance.now()
+
+  const tick = (now: number) => {
+    const elapsed = now - start
+    const progress = Math.min(1, elapsed / durationMs)
+    const eased = easeOutCubic(progress)
+    onUpdate(from + (to - from) * eased)
+
+    if (progress < 1) {
+      window.requestAnimationFrame(tick)
+    }
+  }
+
+  window.requestAnimationFrame(tick)
+}
+
+const runStatsAnimation = () => {
+  if (hasAnimatedStats) {
+    return
+  }
+
+  hasAnimatedStats = true
+
+  animateValue(0, 14, 1200, (value) => {
+    years.value = Math.round(value)
+  })
+
+  animateValue(0, 1.8, 1400, (value) => {
+    volume.value = Math.round(value * 10) / 10
+  })
+
+  animateValue(0, 97, 1300, (value) => {
+    referral.value = Math.round(value)
+  })
+}
+
+onMounted(() => {
+  if (!statsSection.value) {
+    return
+  }
+
+  const el = statsSection.value
+
+  const maybeAnimateImmediately = () => {
+    const rect = el.getBoundingClientRect()
+    const inView = rect.top < window.innerHeight * 0.9 && rect.bottom > 0
+    if (inView) {
+      runStatsAnimation()
+    }
+  }
+
+  statsObserver = new IntersectionObserver((entries) => {
+    const entry = entries[0]
+    if (entry?.isIntersecting) {
+      runStatsAnimation()
+      statsObserver?.disconnect()
+      statsObserver = null
+    }
+  }, {
+    threshold: 0.25
+  })
+
+  statsObserver.observe(el)
+  maybeAnimateImmediately()
+})
+
+onUnmounted(() => {
+  statsObserver?.disconnect()
+  statsObserver = null
+})
+
 useSeoMeta({
   title: 'About | Urban Haven',
   description: 'Meet the boutique team behind Urban Haven and our approach to premium real estate.'
@@ -26,17 +113,17 @@ useSeoMeta({
       >
     </section>
 
-    <section class="shell grid gap-4 sm:grid-cols-3">
+    <section ref="statsSection" class="shell grid gap-4 sm:grid-cols-3">
       <article class="surface rounded-2xl p-6 shadow-sm hover-lift reveal-up">
-        <p class="text-4xl font-semibold">14+</p>
+        <p class="text-4xl font-semibold">{{ years }}+</p>
         <p class="mt-2 text-sm text-muted">Years in premium markets</p>
       </article>
       <article class="surface rounded-2xl p-6 shadow-sm hover-lift reveal-up delay-1">
-        <p class="text-4xl font-semibold">$1.8B</p>
+        <p class="text-4xl font-semibold">${{ volume.toFixed(1) }}B</p>
         <p class="mt-2 text-sm text-muted">Closed transaction value</p>
       </article>
       <article class="surface rounded-2xl p-6 shadow-sm hover-lift reveal-up delay-2">
-        <p class="text-4xl font-semibold">97%</p>
+        <p class="text-4xl font-semibold">{{ referral }}%</p>
         <p class="mt-2 text-sm text-muted">Client referral rate</p>
       </article>
     </section>
