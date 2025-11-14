@@ -7,9 +7,6 @@ const {
   allTypes,
   filteredProperties
 } = useProperties()
-const { gsap } = useGsap()
-
-const listingsSection = ref<HTMLElement | null>(null)
 
 const pageSize = 6
 const currentPage = ref(1)
@@ -44,23 +41,6 @@ watch(totalPages, (pages) => {
   }
 })
 
-onMounted(() => {
-  if (!listingsSection.value) {
-    return
-  }
-
-  gsap.from(listingsSection.value.querySelectorAll('.js-listing-card'), {
-    y: 22,
-    opacity: 0,
-    duration: 0.65,
-    stagger: 0.08,
-    scrollTrigger: {
-      trigger: listingsSection.value,
-      start: 'top 82%'
-    }
-  })
-})
-
 useSeoMeta({
   title: 'Listings | Urban Haven',
   description: 'Browse premium homes, penthouses, villas, and apartments across top U.S. cities.'
@@ -84,7 +64,7 @@ useSeoMeta({
         v-model:max-price="maxPrice"
         :all-types="allTypes"
       />
-      <section ref="listingsSection" class="reveal-up delay-2">
+      <section class="reveal-up delay-2">
         <p class="mb-4 text-sm text-muted">
           {{ filteredProperties.length }} properties found • Page {{ currentPage }} of {{ totalPages }}
         </p>
@@ -92,9 +72,8 @@ useSeoMeta({
           <PropertyCard
             v-for="(property, index) in paginatedProperties"
             :key="property.id"
-            class="js-listing-card"
             :property="property"
-            :style="{ animationDelay: `${100 + index * 70}ms` }"
+            :style="{ animationDelay: `${120 + index * 70}ms` }"
           />
         </div>
         <div v-else class="surface rounded-2xl p-6 text-sm text-muted">
