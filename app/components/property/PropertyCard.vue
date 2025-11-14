@@ -22,7 +22,7 @@ const toCardTitle = (title: string) => title.split(' ').slice(0, 2).join(' ')
     :while-hover="{ y: -6 }"
     :transition="{ duration: 0.45 }"
     :viewport="{ once: true, amount: 0.2 }"
-    class="group card-surface overflow-hidden rounded-2xl shadow-sm hover-lift hover:shadow-md"
+    class="group card-surface overflow-hidden rounded-2xl shadow-sm hover:shadow-md"
   >
     <NuxtLink :to="`/listings/${property.slug}`" class="block">
       <img
