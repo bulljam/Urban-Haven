@@ -4,7 +4,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   const lenis = new Lenis({
     duration: 1.05,
     smoothWheel: true,
-    smoothTouch: false,
+    syncTouch: false,
     wheelMultiplier: 0.92
   })
 
@@ -18,7 +18,8 @@ export default defineNuxtPlugin((nuxtApp) => {
   rafId = window.requestAnimationFrame(raf)
 
   lenis.on('scroll', () => {
-    nuxtApp.$ScrollTrigger?.update()
+    const scrollTrigger = nuxtApp.$ScrollTrigger as { update: () => void } | undefined
+    scrollTrigger?.update()
   })
 
   nuxtApp.hook('page:finish', () => {
