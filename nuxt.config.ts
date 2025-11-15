@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/google-fonts', 'motion-v/nuxt'],
+  modules: ['@nuxtjs/google-fonts', 'motion-v/nuxt', '@nuxt/eslint'],
   css: ['~/assets/css/main.css'],
   components: [
     {
@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     build: {
       sourcemap: false
     },
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss() as any]
   },
   googleFonts: {
     families: {
