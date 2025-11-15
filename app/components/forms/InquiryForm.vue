@@ -55,7 +55,7 @@ defineProps<{
           rows="6"
           class="textarea field-hover min-h-36 w-full rounded-xl border-[var(--tone-border)] bg-white/75 leading-relaxed placeholder:text-[#978f84] focus:border-[var(--tone-accent)] focus:outline-none"
           placeholder="Preferred locations, property type, timeline, and any must-haves."
-        ></textarea>
+        />
       </label>
       <div class="sm:col-span-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p class="text-xs text-muted">By submitting, you agree to be contacted by Urban Haven.</p>
