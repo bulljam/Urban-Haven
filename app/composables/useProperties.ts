@@ -21,7 +21,10 @@ export function useProperties() {
   )
 
   const featuredProperties = computed(() => properties.filter((property) => property.featured))
-  const allTypes = computed(() => ['All', ...new Set(properties.map((property) => property.type))])
+  const allTypes = computed<Array<'All' | PropertyType>>(() => [
+    'All',
+    ...new Set(properties.map((property) => property.type))
+  ])
 
   const getPropertyBySlug = (slug: string): Property | undefined =>
     properties.find((property) => property.slug === slug)
