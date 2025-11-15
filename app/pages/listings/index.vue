@@ -57,12 +57,12 @@ useSeoMeta({
 
     <div class="grid gap-6 lg:grid-cols-[280px_1fr]">
       <FilterPanel
-        class="reveal-up delay-1"
         v-model:city="city"
         v-model:type="type"
         v-model:min-price="minPrice"
         v-model:max-price="maxPrice"
         :all-types="allTypes"
+        class="reveal-up delay-1"
       />
       <section class="reveal-up delay-2">
         <p class="mb-4 text-sm text-muted">
