@@ -30,7 +30,7 @@ watch(
           >
             {{ link.name }}
           </NuxtLink>
-          <NuxtLink to="/contact" class="btn btn-sm rounded-xl border-0 accent-btn hover-lift">Book a Call</NuxtLink>
+          <NuxtLink to="/contact" class="btn btn-sm rounded-xl border-0 accent-btn">Book a Call</NuxtLink>
         </nav>
         <button
           aria-label="Toggle mobile menu"
@@ -52,7 +52,7 @@ watch(
           >
             {{ link.name }}
           </NuxtLink>
-          <NuxtLink to="/contact" class="btn rounded-xl border-0 accent-btn hover-lift">Book a Call</NuxtLink>
+          <NuxtLink to="/contact" class="btn rounded-xl border-0 accent-btn">Book a Call</NuxtLink>
         </div>
       </div>
     </Transition>
