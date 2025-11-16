@@ -1,7 +1,7 @@
 <template>
-  <NuxtLink to="/" class="group inline-flex items-center gap-3" aria-label="Urban Haven home">
+  <NuxtLink to="/" class="brand-link inline-flex items-center gap-3" aria-label="Urban Haven home">
     <span
-      class="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--tone-border)] bg-[color:var(--tone-card)] text-[color:var(--tone-accent-2)] transition-transform duration-300 group-hover:scale-105"
+      class="brand-mark flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--tone-border)] bg-[color:var(--tone-card)] text-[color:var(--tone-accent-2)]"
     >
       <svg
         viewBox="0 0 44 44"
@@ -38,7 +38,7 @@
         />
       </svg>
     </span>
-    <span class="leading-none">
+    <span class="brand-wordmark leading-none">
       <span class="block text-xl font-semibold tracking-[0.06em] sm:text-2xl">Urban Haven</span>
       <span class="block text-[0.62rem] uppercase tracking-[0.26em] text-muted">Private Realty</span>
     </span>
