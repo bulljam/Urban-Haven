@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     build: {
       sourcemap: false
     },
-    plugins: [tailwindcss() as any]
+    plugins: [tailwindcss() as import('vite').PluginOption]
   },
   googleFonts: {
     families: {
