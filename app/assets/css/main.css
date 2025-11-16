@@ -71,6 +71,7 @@ h4 {
 
 .nav-link {
   position: relative;
+  transition: color 220ms ease;
 }
 
 .nav-link::after {
@@ -102,6 +103,29 @@ h4 {
 
 .hover-lift:hover {
   transform: translateY(-4px);
+}
+
+.brand-link {
+  transition: opacity 220ms ease;
+}
+
+.brand-link:hover {
+  opacity: 0.92;
+}
+
+.brand-mark {
+  transition:
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+
+.brand-link:hover .brand-mark {
+  border-color: color-mix(in srgb, var(--tone-accent) 35%, var(--tone-border));
+  background-color: color-mix(in srgb, var(--tone-card) 78%, white);
+}
+
+.brand-wordmark {
+  transition: color 220ms ease;
 }
 
 .field-hover {
