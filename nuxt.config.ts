@@ -3,9 +3,15 @@ import tailwindcss from '@tailwindcss/vite'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   modules: ['@nuxtjs/google-fonts', 'motion-v/nuxt', '@nuxt/eslint'],
   css: ['~/assets/css/main.css'],
+  runtimeConfig: {
+    mailtrapToken: '',
+    mailtrapFromEmail: '',
+    mailtrapFromName: 'Urban Haven',
+    mailtrapToEmail: ''
+  },
   components: [
     {
       path: '~/components',
@@ -20,7 +26,7 @@ export default defineNuxtConfig({
     build: {
       sourcemap: false
     },
-    plugins: [tailwindcss() as import('vite').PluginOption]
+    plugins: [tailwindcss() as unknown as never]
   },
   googleFonts: {
     families: {
