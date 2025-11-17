@@ -15,7 +15,7 @@ useSeoMeta({
       />
       <div class="surface rounded-2xl p-6 text-sm text-muted shadow-sm hover-lift">
         <p>+1 (310) 555-0199</p>
-        <p>concierge@urbanhaven.com</p>
+        <p>concierge@urbanhaven.test</p>
         <p>880 Westview Ave, Los Angeles, CA</p>
       </div>
     </section>
