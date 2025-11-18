@@ -7,7 +7,11 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/google-fonts', 'motion-v/nuxt', '@nuxt/eslint'],
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
-    mailtrapToken: '',
+    mailtrapHost: '',
+    mailtrapPort: 2525,
+    mailtrapUser: '',
+    mailtrapPass: '',
+    mailtrapSecure: false,
     mailtrapFromEmail: '',
     mailtrapFromName: 'Urban Haven',
     mailtrapToEmail: ''
