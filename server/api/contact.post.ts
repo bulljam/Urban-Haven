@@ -1,3 +1,5 @@
+import nodemailer from 'nodemailer'
+
 interface ContactPayload {
   name?: string
   email?: string
@@ -37,15 +39,29 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const token = clean(config.mailtrapToken)
+  const host = clean(config.mailtrapHost)
+  const user = clean(config.mailtrapUser)
+  const pass = clean(config.mailtrapPass)
   const fromEmail = clean(config.mailtrapFromEmail)
   const fromName = clean(config.mailtrapFromName) || 'Urban Haven'
+  const secure = Boolean(config.mailtrapSecure)
+  const port =
+    typeof config.mailtrapPort === 'number'
+      ? config.mailtrapPort
+      : Number.parseInt(String(config.mailtrapPort), 10)
   const toEmails = clean(config.mailtrapToEmail)
     .split(',')
     .map((item) => item.trim())
     .filter(Boolean)
 
-  if (!token || !fromEmail || toEmails.length === 0) {
+  if (
+    !host ||
+    !Number.isFinite(port) ||
+    !user ||
+    !pass ||
+    !fromEmail ||
+    toEmails.length === 0
+  ) {
     throw createError({
       statusCode: 500,
       statusMessage: 'Mailtrap environment variables are missing.'
@@ -67,18 +83,22 @@ export default defineEventHandler(async (event) => {
   ].join('\n')
 
   try {
-    await $fetch('https://send.api.mailtrap.io/api/send', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`
-      },
-      body: {
-        from: { email: fromEmail, name: fromName },
-        to: toEmails.map((address) => ({ email: address })),
-        subject,
-        text,
-        category: 'website-contact'
+    const transporter = nodemailer.createTransport({
+      host,
+      port,
+      secure,
+      auth: {
+        user,
+        pass
       }
+    })
+
+    await transporter.sendMail({
+      from: `${fromName} <${fromEmail}>`,
+      to: toEmails.join(', '),
+      replyTo: `${name} <${email}>`,
+      subject,
+      text
     })
   } catch {
     throw createError({
