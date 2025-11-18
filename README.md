@@ -74,14 +74,18 @@ bun run preview
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
-## Contact Form (Mailtrap)
+## Contact Form (Mailtrap SMTP)
 
-The reusable `InquiryForm` submits to `POST /api/contact` and sends emails via Mailtrap API.
+The reusable `InquiryForm` submits to `POST /api/contact` and sends emails via Mailtrap SMTP.
 
 Create a `.env` file from `.env.example` and set:
 
 ```bash
-NUXT_MAILTRAP_TOKEN=your_mailtrap_api_token
+NUXT_MAILTRAP_HOST=live.smtp.mailtrap.io
+NUXT_MAILTRAP_PORT=2525
+NUXT_MAILTRAP_USER=your_mailtrap_username
+NUXT_MAILTRAP_PASS=your_mailtrap_password
+NUXT_MAILTRAP_SECURE=false
 NUXT_MAILTRAP_FROM_EMAIL=hello@yourdomain.com
 NUXT_MAILTRAP_FROM_NAME=Urban Haven
 NUXT_MAILTRAP_TO_EMAIL=inbox@yourdomain.com
