@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     mailtrapPass: '',
     mailtrapSecure: false,
     mailtrapFromEmail: '',
-    mailtrapFromName: 'Urban Haven',
+    mailtrapFromName: '',
     mailtrapToEmail: ''
   },
   components: [
