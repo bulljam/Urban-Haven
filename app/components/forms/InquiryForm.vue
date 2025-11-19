@@ -75,6 +75,7 @@ const handleSubmit = async () => {
         <input
           v-model="form.name"
           type="text"
+          autocomplete="name"
           class="input field-hover h-12 rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
           required
           :disabled="isSubmitting"
@@ -85,6 +86,7 @@ const handleSubmit = async () => {
         <input
           v-model="form.email"
           type="email"
+          autocomplete="email"
           class="input field-hover h-12 rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
           required
           :disabled="isSubmitting"
@@ -95,6 +97,7 @@ const handleSubmit = async () => {
         <input
           v-model="form.phone"
           type="tel"
+          autocomplete="tel"
           class="input field-hover h-12 rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
           :disabled="isSubmitting"
         >
@@ -117,6 +120,7 @@ const handleSubmit = async () => {
         <textarea
           v-model="form.message"
           rows="6"
+          autocomplete="off"
           class="textarea field-hover min-h-36 w-full rounded-xl border-[var(--tone-border)] bg-white/75 leading-relaxed placeholder:text-[#978f84] focus:border-[var(--tone-accent)] focus:outline-none"
           placeholder="Preferred locations, property type, timeline, and any must-haves."
           required
@@ -124,19 +128,21 @@ const handleSubmit = async () => {
         />
       </label>
       <div class="sm:col-span-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p
-          v-if="submitState === 'success'"
-          class="text-xs text-emerald-700"
-        >
-          Message sent successfully. We will be in touch soon.
-        </p>
-        <p
-          v-else-if="submitState === 'error'"
-          class="text-xs text-red-700"
-        >
-          {{ submitError || 'Unable to send message. Please try again.' }}
-        </p>
-        <p v-else class="text-xs text-muted">By submitting, you agree to be contacted by Urban Haven.</p>
+        <div class="w-full sm:w-auto sm:flex-1">
+          <div v-if="submitState === 'success'" role="status" class="alert alert-success rounded-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            <span>Message sent successfully. We will be in touch soon.</span>
+          </div>
+          <div v-else-if="submitState === 'error'" role="alert" class="alert alert-error rounded-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m0 3h.008v.008H12v-.008ZM3.75 12a8.25 8.25 0 1 1 16.5 0 8.25 8.25 0 0 1-16.5 0Z" />
+            </svg>
+            <span>{{ submitError || 'Unable to send message. Please try again.' }}</span>
+          </div>
+          <p v-else class="text-xs text-muted">By submitting, you agree to be contacted by Urban Haven.</p>
+        </div>
         <button class="btn rounded-xl border-0 px-6 accent-btn hover-lift" :disabled="isSubmitting">
           {{ isSubmitting ? 'Sending...' : (submitLabel || 'Send Message') }}
         </button>
