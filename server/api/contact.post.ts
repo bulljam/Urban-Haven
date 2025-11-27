@@ -18,18 +18,6 @@ const escapeHtml = (value: string) =>
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#039;')
-const maskEmail = (value: string) => {
-  const [local, domain] = value.split('@')
-  if (!local || !domain) return 'Hidden'
-  const visible = local.slice(0, 1)
-  return `${visible}${'*'.repeat(Math.max(local.length - 1, 2))}@${domain}`
-}
-const maskPhone = (value: string) => {
-  if (!value) return 'Not provided'
-  const digits = value.replaceAll(/\D/g, '')
-  if (digits.length < 4) return 'Hidden'
-  return `•••• ${digits.slice(-2)}`
-}
 
 export default defineEventHandler(async (event) => {
   const body = await readBody<ContactPayload>(event)
@@ -61,7 +49,7 @@ export default defineEventHandler(async (event) => {
   const user = clean(config.mailtrapUser)
   const pass = clean(config.mailtrapPass)
   const fromEmail = clean(config.mailtrapFromEmail)
-  const fromName = clean(config.mailtrapFromName) 
+  const fromName = clean(config.mailtrapFromName) || 'Urban Haven'
   const secure = Boolean(config.mailtrapSecure)
   const port =
     typeof config.mailtrapPort === 'number'
@@ -88,17 +76,18 @@ export default defineEventHandler(async (event) => {
 
   const subject = `[${fromName}] New Website Inquiry`
   const safeName = escapeHtml(name)
-  const safeEmail = escapeHtml(maskEmail(email))
-  const safePhone = escapeHtml(maskPhone(phone))
+  const safeEmail = escapeHtml(email)
+  const safePhone = escapeHtml(phone || 'Not provided')
   const safeBudget = escapeHtml(budget || 'Not provided')
   const safeMessage = escapeHtml(message).replaceAll('\n', '<br>')
+  const replyHref = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(`Re: ${subject}`)}`
 
   const text = [
     `New inquiry from Urban Haven website`,
     '',
     `Name: ${name}`,
-    `Email: ${maskEmail(email)}`,
-    `Phone: ${maskPhone(phone)}`,
+    `Email: ${email}`,
+    `Phone: ${phone || 'Not provided'}`,
     `Budget: ${budget || 'Not provided'}`,
     '',
     `Message:`,
@@ -121,6 +110,11 @@ export default defineEventHandler(async (event) => {
           <div style="margin-top:20px;padding:16px;border:1px solid #e7e2d9;border-radius:12px;background:#fcfbf8;">
             <p style="margin:0 0 8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#7b7467;">Message</p>
             <p style="margin:0;line-height:1.7;">${safeMessage}</p>
+          </div>
+          <div style="margin-top:20px;">
+            <a href="${replyHref}" style="display:inline-block;padding:10px 16px;border-radius:10px;background:#7a5a3c;color:#fdf9f3;text-decoration:none;font-weight:600;font-size:13px;line-height:1.2;">
+              Reply to Lead
+            </a>
           </div>
         </div>
       </div>
