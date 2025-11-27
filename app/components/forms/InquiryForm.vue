@@ -27,7 +27,7 @@ const resetForm = () => {
   form.message = ''
 }
 
-const handleSubmit = async () => {
+const handleSubmit = async (event: Event) => {
   if (isSubmitting.value) {
     return
   }
@@ -37,14 +37,22 @@ const handleSubmit = async () => {
   isSubmitting.value = true
 
   try {
+    const formElement = event.currentTarget instanceof HTMLFormElement ? event.currentTarget : null
+    const formData = formElement ? new FormData(formElement) : null
+    const name = String(formData?.get('name') ?? form.name).trim()
+    const email = String(formData?.get('email') ?? form.email).trim()
+    const phone = String(formData?.get('phone') ?? form.phone).trim()
+    const budget = String(formData?.get('budget') ?? form.budget).trim()
+    const message = String(formData?.get('message') ?? form.message).trim()
+
     await $fetch('/api/contact', {
       method: 'POST',
       body: {
-        name: form.name,
-        email: form.email,
-        phone: form.phone,
-        budget: props.compact ? '' : form.budget,
-        message: form.message,
+        name,
+        email,
+        phone,
+        budget: props.compact ? '' : budget,
+        message,
         sourcePath: route.fullPath,
         contextTitle: props.title || 'Website Inquiry'
       }
@@ -69,11 +77,26 @@ const handleSubmit = async () => {
         Share your preferences and we will follow up with curated options.
       </p>
     </div>
+    <div class="mb-5">
+      <div v-if="submitState === 'success'" role="status" class="alert alert-success rounded-xl">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        <span>Message sent successfully. We will be in touch soon.</span>
+      </div>
+      <div v-else-if="submitState === 'error'" role="alert" class="alert alert-error rounded-xl">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m0 3h.008v.008H12v-.008ZM3.75 12a8.25 8.25 0 1 1 16.5 0 8.25 8.25 0 0 1-16.5 0Z" />
+        </svg>
+        <span>{{ submitError || 'Unable to send message. Please try again.' }}</span>
+      </div>
+    </div>
     <form class="grid gap-4 sm:grid-cols-2" @submit.prevent="handleSubmit">
       <label class="form-control sm:col-span-1">
         <span class="mb-1 text-[0.68rem] uppercase tracking-[0.16em] text-muted">Full Name</span>
         <input
           v-model="form.name"
+          name="name"
           type="text"
           autocomplete="name"
           class="input field-hover h-12 rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
@@ -85,6 +108,7 @@ const handleSubmit = async () => {
         <span class="mb-1 text-[0.68rem] uppercase tracking-[0.16em] text-muted">Email</span>
         <input
           v-model="form.email"
+          name="email"
           type="email"
           autocomplete="email"
           class="input field-hover h-12 rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
@@ -96,6 +120,7 @@ const handleSubmit = async () => {
         <span class="mb-1 text-[0.68rem] uppercase tracking-[0.16em] text-muted">Phone</span>
         <input
           v-model="form.phone"
+          name="phone"
           type="tel"
           autocomplete="tel"
           class="input field-hover h-12 rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
@@ -106,6 +131,7 @@ const handleSubmit = async () => {
         <span class="mb-1 text-[0.68rem] uppercase tracking-[0.16em] text-muted">Budget Range</span>
         <select
           v-model="form.budget"
+          name="budget"
           class="select field-hover h-12 rounded-xl border-[var(--tone-border)] bg-white/75 focus:border-[var(--tone-accent)] focus:outline-none"
           :disabled="isSubmitting"
         >
@@ -119,6 +145,7 @@ const handleSubmit = async () => {
         <span class="mb-1 text-[0.68rem] uppercase tracking-[0.16em] text-muted">Message</span>
         <textarea
           v-model="form.message"
+          name="message"
           rows="6"
           autocomplete="off"
           class="textarea field-hover min-h-36 w-full rounded-xl border-[var(--tone-border)] bg-white/75 leading-relaxed placeholder:text-[#978f84] focus:border-[var(--tone-accent)] focus:outline-none"
@@ -128,21 +155,7 @@ const handleSubmit = async () => {
         />
       </label>
       <div class="sm:col-span-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div class="w-full sm:w-auto sm:flex-1">
-          <div v-if="submitState === 'success'" role="status" class="alert alert-success rounded-xl">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            </svg>
-            <span>Message sent successfully. We will be in touch soon.</span>
-          </div>
-          <div v-else-if="submitState === 'error'" role="alert" class="alert alert-error rounded-xl">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m0 3h.008v.008H12v-.008ZM3.75 12a8.25 8.25 0 1 1 16.5 0 8.25 8.25 0 0 1-16.5 0Z" />
-            </svg>
-            <span>{{ submitError || 'Unable to send message. Please try again.' }}</span>
-          </div>
-          <p v-else class="text-xs text-muted">By submitting, you agree to be contacted by Urban Haven.</p>
-        </div>
+        <p class="w-full text-xs text-muted sm:w-auto sm:flex-1">By submitting, you agree to be contacted by Urban Haven.</p>
         <button class="btn rounded-xl border-0 px-6 accent-btn hover-lift" :disabled="isSubmitting">
           {{ isSubmitting ? 'Sending...' : (submitLabel || 'Send Message') }}
         </button>
