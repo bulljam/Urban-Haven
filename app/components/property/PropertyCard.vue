@@ -17,7 +17,7 @@ const toCardTitle = (title: string) => title.split(' ').slice(0, 2).join(' ')
 
 <template>
   <Motion
-    :initial="{ opacity: 0, y: 16 }"
+    :initial="{ opacity: 1, y: 16 }"
     :while-in-view="{ opacity: 1, y: 0 }"
     :while-hover="{ y: -6 }"
     :transition="{ duration: 0.45 }"
