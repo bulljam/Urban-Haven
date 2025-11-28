@@ -10,7 +10,7 @@ defineProps<{
 <template>
   <section class="shell">
     <Motion
-      :initial="{ opacity: 0, y: 20 }"
+      :initial="{ opacity: 1, y: 20 }"
       :while-in-view="{ opacity: 1, y: 0 }"
       :transition="{ duration: 0.55 }"
       :viewport="{ once: true, amount: 0.3 }"
