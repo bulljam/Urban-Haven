@@ -14,7 +14,7 @@ defineProps<{
   <section class="shell pt-8 sm:pt-10">
     <div class="group grid overflow-hidden rounded-3xl border border-[var(--tone-border)] bg-[color:var(--tone-surface)] lg:grid-cols-2">
       <Motion
-        :initial="{ opacity: 0, y: 16 }"
+        :initial="{ opacity: 1, y: 16 }"
         :while-in-view="{ opacity: 1, y: 0 }"
         :transition="{ duration: 0.55 }"
         :viewport="{ once: true, amount: 0.35 }"
