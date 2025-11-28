@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <Motion
-    :initial="{ opacity: 0, y: 18 }"
+    :initial="{ opacity: 1, y: 18 }"
     :while-in-view="{ opacity: 1, y: 0 }"
     :while-hover="{ y: -5 }"
     :transition="{ duration: 0.45 }"
