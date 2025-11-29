@@ -37,7 +37,7 @@ export default defineNuxtConfig({
       Manrope: [400, 500, 600, 700],
       'Cormorant Garamond': [500, 600, 700]
     },
-    display: 'swap',
+    display: 'block',
     prefetch: true,
     preconnect: true
   },
