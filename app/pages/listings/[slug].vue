@@ -36,19 +36,25 @@ useSeoMeta({
     </section>
 
     <section class="shell grid gap-4 lg:grid-cols-3">
-      <img
-        :src="property?.image"
-        :alt="property?.title"
-        class="h-72 w-full rounded-2xl object-cover lg:col-span-2 lg:h-[30rem]"
-      >
-      <div class="space-y-4">
+      <div class="group overflow-hidden rounded-2xl lg:col-span-2">
         <img
+          :src="property?.image"
+          :alt="property?.title"
+          class="h-72 w-full object-cover transition duration-700 ease-out group-hover:scale-[1.03] group-hover:brightness-[1.03] group-hover:contrast-[1.02] lg:h-[30rem]"
+        >
+      </div>
+      <div class="space-y-4">
+        <div
           v-for="item in property?.gallery"
           :key="item"
-          :src="item"
-          :alt="property?.title"
-          class="h-40 w-full rounded-2xl object-cover lg:h-[9.35rem]"
+          class="group overflow-hidden rounded-2xl"
         >
+          <img
+            :src="item"
+            :alt="property?.title"
+            class="h-40 w-full object-cover transition duration-700 ease-out group-hover:scale-[1.04] group-hover:brightness-[1.03] group-hover:contrast-[1.02] lg:h-[9.35rem]"
+          >
+        </div>
       </div>
     </section>
 
@@ -67,7 +73,7 @@ useSeoMeta({
             <li
               v-for="amenity in property?.amenities"
               :key="amenity"
-              class="rounded-xl border border-[var(--tone-border)] bg-[color:var(--tone-card)] px-3 py-2 text-sm"
+              class="hover-lift cursor-default rounded-xl border border-[var(--tone-border)] bg-[color:var(--tone-card)] px-3 py-2 text-sm transition-colors duration-300 hover:border-[color:var(--tone-accent)]/45 hover:bg-white hover:shadow-sm"
             >
               {{ amenity }}
             </li>
