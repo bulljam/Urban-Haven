@@ -109,7 +109,7 @@ export const properties: Property[] = [
     gallery: [
       'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1600&q=80',
       'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1600&q=80',
-      'https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?auto=format&fit=crop&w=1600&q=80'
+      'https://images.unsplash.com/photo-1565402170291-8491f14678db?auto=format&fit=crop&w=1600&q=80'
     ],
     summary: 'Contemporary townhouse centered around a garden.',
     description:
@@ -132,7 +132,7 @@ export const properties: Property[] = [
       'https://images.unsplash.com/photo-1600047509782-20d39509f26d?auto=format&fit=crop&w=1600&q=80',
     gallery: [
       'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=80',
-      'https://images.unsplash.com/photo-1617104551722-3b2d51366485?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1592595896551-12b371d546d5?auto=format&fit=crop&w=1600&q=80',
       'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=80'
     ],
     summary: 'Modern Northwest design with water and city views.',
@@ -181,7 +181,7 @@ export const properties: Property[] = [
     gallery: [
       'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=80',
       'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=80',
-      'https://images.unsplash.com/photo-1617104551722-3b2d51366485?auto=format&fit=crop&w=1600&q=80'
+      'https://images.unsplash.com/photo-1592595896551-12b371d546d5?auto=format&fit=crop&w=1600&q=80'
     ],
     summary: 'Hill country architecture with elevated sunset terraces.',
     description:
@@ -205,7 +205,7 @@ export const properties: Property[] = [
     gallery: [
       'https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=1600&q=80',
       'https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=1600&q=80',
-      'https://images.unsplash.com/photo-1616594039964-3c8d3be5d5d3?auto=format&fit=crop&w=1600&q=80'
+      'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=80'
     ],
     summary: 'Elegant city apartment overlooking historic streets.',
     description:
@@ -277,7 +277,7 @@ export const properties: Property[] = [
     gallery: [
       'https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=1600&q=80',
       'https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=1600&q=80',
-      'https://images.unsplash.com/photo-1616594039964-3c8d3be5d5d3?auto=format&fit=crop&w=1600&q=80'
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1600&q=80'
     ],
     summary: 'Minimalist apartment with expansive skyline glazing.',
     description:
