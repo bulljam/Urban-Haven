@@ -24,6 +24,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   nuxtApp.hook('page:finish', () => {
     lenis.resize()
+    lenis.scrollTo(0, { immediate: true, force: true })
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
   })
 
   if (import.meta.hot) {
