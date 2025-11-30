@@ -1,6 +1,10 @@
 import Lenis from 'lenis'
 
 export default defineNuxtPlugin((nuxtApp) => {
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual'
+  }
+
   const lenis = new Lenis({
     duration: 1.05,
     smoothWheel: true,
@@ -22,10 +26,21 @@ export default defineNuxtPlugin((nuxtApp) => {
     scrollTrigger?.update()
   })
 
+  nuxtApp.hook('page:start', () => {
+    lenis.stop()
+    lenis.scrollTo(0, { immediate: true, force: true })
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  })
+
   nuxtApp.hook('page:finish', () => {
     lenis.resize()
     lenis.scrollTo(0, { immediate: true, force: true })
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    requestAnimationFrame(() => {
+      lenis.scrollTo(0, { immediate: true, force: true })
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+      lenis.start()
+    })
   })
 
   if (import.meta.hot) {
