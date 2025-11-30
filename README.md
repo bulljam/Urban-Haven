@@ -1,84 +1,103 @@
-# Nuxt Minimal Starter
+# Urban Haven
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Premium real estate showcase website built with Nuxt 3 (Vue 3), Tailwind CSS, and DaisyUI.
 
-## Setup
+![Urban Haven Home](app/assets/images/Home.png)
 
-Make sure to install dependencies:
+## Overview
+
+Urban Haven is a mobile-first, design-forward real estate experience with:
+
+- Reusable Vue components and clean page composition
+- Luxury/minimal visual language with refined typography
+- Responsive layouts for Home, Listings, Property Details, About, and Contact
+- Property filtering, pagination, and detailed listing pages
+- Smooth scrolling and motion-enhanced interactions
+- Contact workflow backed by SMTP email delivery
+
+## Tech Stack
+
+- Nuxt
+- Vue
+- Tailwind CSS
+- DaisyUI
+- Motion (`motion-v`)
+- GSAP + ScrollTrigger
+- Lenis (smooth scroll)
+- Nodemailer for email delivery
+
+## Project Structure
+
+```text
+app/
+  components/
+    forms/
+    layout/
+    property/
+    sections/
+    shared/
+  composables/
+  data/
+    properties.ts
+  layouts/
+  pages/
+    index.vue
+    listings/index.vue
+    listings/[slug].vue
+    about.vue
+    contact.vue
+  plugins/
+    gsap.client.ts
+    lenis.client.ts
+  assets/
+    css/main.css
+    images/Home.png
+server/
+  api/
+    contact.post.ts
+nuxt.config.ts
+```
+
+## Getting Started
+
+Install dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+Run development server:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
+Build for production:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
 pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+Preview production build:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
 pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Available Scripts
 
-## Contact Form (Mailtrap SMTP)
+```bash
+pnpm dev
+pnpm build
+pnpm preview
+pnpm lint
+pnpm lint:fix
+pnpm typecheck
+```
 
-The reusable `InquiryForm` submits to `POST /api/contact` and sends emails via Mailtrap SMTP.
+## Environment Variables
 
-Create a `.env` file from `.env.example` and set:
+Copy `.env.example` to `.env` and configure Mailtrap SMTP:
 
 ```bash
 NUXT_MAILTRAP_HOST=live.smtp.mailtrap.io
@@ -89,4 +108,27 @@ NUXT_MAILTRAP_SECURE=false
 NUXT_MAILTRAP_FROM_EMAIL=hello@yourdomain.com
 NUXT_MAILTRAP_FROM_NAME=Urban Haven
 NUXT_MAILTRAP_TO_EMAIL=inbox@yourdomain.com
+```
+
+Notes:
+
+- `FROM` is your website sender identity.
+- `TO` is the destination inbox for incoming form submissions.
+- The form submitter address is set as `Reply-To`.
+
+## Contact Form
+
+- UI component: `app/components/forms/InquiryForm.vue`
+- API route: `POST /api/contact`
+- Backend sender: `server/api/contact.post.ts`
+- Email output: plain-text + HTML template with a `Reply to Lead` CTA
+
+## Quality Checks
+
+Run before shipping:
+
+```bash
+pnpm lint
+pnpm typecheck
+pnpm build
 ```
