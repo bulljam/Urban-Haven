@@ -4,9 +4,9 @@ Premium real estate showcase website built with Nuxt 3 (Vue 3), Tailwind CSS, an
 
 ## Project Demo
 
-<p>Click the preview below to watch the demo:</p>
+<p>Click the preview below to watch the demo. Use Ctrl + Click or open in a new tab if needed.</p>
 
-<a href="https://youtu.be/N9FdlS2lAF0" target="_blank">
+<a href="https://youtu.be/N9FdlS2lAF0">
   <img src="https://img.youtube.com/vi/N9FdlS2lAF0/maxresdefault.jpg" alt="Project Demo" width="100%" />
 </a>
 
