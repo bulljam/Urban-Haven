@@ -2,7 +2,9 @@
 
 Premium real estate showcase website built with Nuxt 3 (Vue 3), Tailwind CSS, and DaisyUI.
 
-![Urban Haven Home](app/assets/images/Home.png)
+## Project Demo
+
+[![Project Demo](https://img.youtube.com/vi/N9FdlS2lAF0/maxresdefault.jpg)](https://youtu.be/N9FdlS2lAF0)
 
 ## Overview
 
